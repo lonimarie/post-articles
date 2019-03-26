@@ -13,7 +13,7 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.MONGODB_URI  + '/articles/')
+        fetch('/articles/')
             .then(response => {
                 this.setState({
                     
