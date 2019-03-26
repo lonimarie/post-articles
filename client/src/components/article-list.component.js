@@ -13,7 +13,7 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/articles/')
+        axios.get('/articles/')
             .then(response => {
                 this.setState({
                     articles: response.data

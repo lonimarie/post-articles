@@ -130,7 +130,7 @@ export default class CreateArticle extends Component {
         console.log("here");
         console.log(this.state.url);
 
-        axios.post('http://localhost:4000/articles/add', newArticle)
+        axios.post('/articles/add', newArticle)
         .then(res => console.log(res.data));
         
         this.setState({
