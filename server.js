@@ -11,7 +11,8 @@ let Article = require('./article.model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/articles', { useNewUrlParser: true });
+let mongoDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/articles';
+mongoose.connect(mongoDB);
 const connection = mongoose.connection;
 
 connection.once('open', function() {
