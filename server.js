@@ -132,6 +132,6 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/articles', articleRoutes);
 
-app.listen(PORT, function() {
+app.listen(process.env.PORT || PORT, function() {
     console.log("Server is running on Port: ");
 });
