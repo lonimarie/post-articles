@@ -24,7 +24,7 @@ export default class ArticleList extends Component {
             .catch(function (error) {
                 console.log(error);
             })    
-            console.log(articles);        
+            console.log(this.state.articles);        
     }
 
 
