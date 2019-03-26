@@ -130,7 +130,7 @@ export default class CreateArticle extends Component {
         console.log("here");
         console.log(this.state.url);
 
-        axios.post('/articles/add', newArticle)
+        axios.post(process.env.MONGODB_URI + '/articles/add', newArticle)
         .then(res => console.log(res.data));
         
         this.setState({

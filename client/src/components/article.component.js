@@ -95,7 +95,7 @@ export default class Article extends Component {
     }  
 
     delete(e) {
-        axios.delete('/articles/delete' + this.props.article._id)
+        axios.delete(process.env.MONGODB_URI + '/articles/delete' + this.props.article._id)
         .then(res => {
             console.log(res.data)
             window.location.reload()
