@@ -16,12 +16,15 @@ export default class ArticleList extends Component {
         axios.get('/articles/')
             .then(response => {
                 this.setState({
+                    
                     articles: response.data
+                    
                 });
             })
             .catch(function (error) {
                 console.log(error);
-            })            
+            })    
+            console.log(articles);        
     }
 
 
