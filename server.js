@@ -19,6 +19,10 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+app.get('/', function(req, res){
+    res.redirect('/todo');
+ });
+
 //original route to main page
 articleRoutes.route('/').get(function(req, res) {
     Article.find(function(err, articles) {
