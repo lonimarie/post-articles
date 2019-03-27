@@ -95,7 +95,7 @@ export default class Article extends Component {
     }  
 
     delete(e) {
-        axios.delete(process.env.MONGODB_URI + '/articles/delete' + this.props.article._id)
+        axios.delete('http://localhost:4000/articles/delete' + this.props.article._id)
         .then(res => {
             console.log(res.data)
             window.location.reload()
@@ -118,7 +118,7 @@ export default class Article extends Component {
                 <img src={(this.state.article_image)} alt="ArticleImage"></img>
                     <br></br>
                     <p className="center-paragraph">
-                    <nbsp/> {this.props.article.article_body}
+                     {this.props.article.article_body}
                     </p>
                     <h5 className="authorName">By: {this.props.article.article_author}</h5>
                     <br></br>
