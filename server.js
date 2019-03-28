@@ -46,7 +46,7 @@ connection.once('open', function() {
 //  });
 //app.use(express.static('client/build'));
 //original route to main page
-articleRoutes.route('/').get(function(req, res) {
+articleRoutes.route('/api/articles').get(function(req, res) {
     Article.find(function(err, articles) {
         if (err) {
             console.log(err);
