@@ -57,7 +57,7 @@ export default class EditArticle extends Component {
             com_date: date.toLocaleDateString('en-US'),
             article_id: this.props.edit.article._id
         };
-        axios.post('http://localhost:4000/articles/addComment', newComment)
+        axios.post('/articles/addComment', newComment)
         .then(res => {
             console.log(res.data)
             window.location.reload()

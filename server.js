@@ -9,10 +9,20 @@ const path = require('path');
 
 let Article = require('./article.model');
 
+//const MongoClient = require(‘mongodb’).MongoClient;
+//const uri = "mongodb+srv://perfectsense:<password>@cluster0-hjpdb.mongodb.net/test?retryWrites=true";
+//const client = new MongoClient(uri, { useNewUrlParser: true });
+//client.connect(err => {
+  //const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  //client.close();
+//});
 app.use(cors());
 app.use(bodyParser.json());
 
-let mongoDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/articles';
+// let mongoDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/articles';
+console.log(process.env.MONGODB_URI);
+let mongoDB = process.env.MONGODB_URI || 'mongodb+srv://perfectsense:perfectsense@cluster0-hjpdb.mongodb.net/test?retryWrites=true';
 mongoose.connect(mongoDB);
 const connection = mongoose.connection;
 
@@ -20,10 +30,20 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-app.get('/', function(req, res){
-    res.redirect('/todo');
- });
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', function() {
+//       navigator.serviceWorker.register('/service-worker.js');
+//     });
+// }
 
+
+
+// app.get('/', function(req, res){
+//     // res.redirect('/todo');
+
+
+//  });
+app.use(express.static('client/build'));
 //original route to main page
 articleRoutes.route('/').get(function(req, res) {
     Article.find(function(err, articles) {
@@ -138,5 +158,5 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/articles', articleRoutes);
 
 app.listen(process.env.PORT || PORT, function() {
-    console.log("Server is running on Port: ");
+    console.log("Server is running on Port: " + PORT);
 });
