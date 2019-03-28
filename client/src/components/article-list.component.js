@@ -23,22 +23,8 @@ export default class ArticleList extends Component {
             .catch(function (error) {
                 console.log(error);
             })    
-            console.log(articles);     
-        // this.callApi().then(res => {
-        //     console.log(res)
-        //     return this.setState({
-        //         articles: res.express
-        //     })
-        // })   
+   
     }
-
-    // callApi = async () => {
-    //     const response = await fetch('/articles/') //pause execution until data returns
-    //     const body = await response.json()
-    //     if (response.status !== 200) throw Error(body.message)
-    //     return body
-    //   }
-
 
     articlesList() {
         console.log(this.state.articles)
