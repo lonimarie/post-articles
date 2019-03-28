@@ -13,12 +13,9 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/articles/')
-            .then(response => {
-                this.setState({
-                    articles: response.data.articles
-                });
-            })
+        fetch('/articles/')
+            .then(response => response.json()).then(articles => this.setState({articles}))
+
             .catch(function (error) {
                 console.log(error);
             })            
