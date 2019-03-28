@@ -26,6 +26,7 @@ export default class ArticleList extends Component {
 
 
     articlesList() {
+        console.log(this.state.articles)
         return (
             <div className="article">
                         {this.state.articles.map((item, key) =>
