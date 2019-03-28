@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 console.log(process.env.MONGODB_URI);
 let mongoDB = process.env.MONGODB_URI || 'mongodb+srv://perfectsense:perfectsense@cluster0-hjpdb.mongodb.net/test?retryWrites=true';
 mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
+//mongoose.Promise = global.Promise;
 const connection = mongoose.connection;
 
 connection.once('open', function() {

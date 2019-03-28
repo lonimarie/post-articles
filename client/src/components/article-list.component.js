@@ -32,12 +32,12 @@ export default class ArticleList extends Component {
         // })   
     }
 
-    callApi = async () => {
-        const response = await fetch('/articles/') //pause execution until data returns
-        const body = await response.json()
-        if (response.status !== 200) throw Error(body.message)
-        return body
-      }
+    // callApi = async () => {
+    //     const response = await fetch('/articles/') //pause execution until data returns
+    //     const body = await response.json()
+    //     if (response.status !== 200) throw Error(body.message)
+    //     return body
+    //   }
 
 
     articlesList() {
