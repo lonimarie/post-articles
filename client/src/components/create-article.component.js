@@ -140,8 +140,8 @@ export default class CreateArticle extends Component {
             article_comments: []
         })
 
-        this.props.history.push('/');
-        window.location.reload();
+        //this.props.history.push('/');
+        //window.location.reload();
     }
 
 
