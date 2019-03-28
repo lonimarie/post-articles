@@ -13,18 +13,31 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/articles/')
-            .then(response => {
-                this.setState({
-                    articles: response.data.articles
+        // axios.get('/articles/')
+        //     .then(response => {
+        //         this.setState({
+        //             articles: response.data.articles
                     
-                });
+        //         });
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })    
+        //     console.log(articles);     
+        this.callApi().then(res => {
+            console.log(res)
+            return this.setState({
+                articles: res.express
             })
-            .catch(function (error) {
-                console.log(error);
-            })    
-            console.log(articles);        
+        })   
     }
+
+    callApi = async () => {
+        const response = await fetch('/articles/') //pause execution until data returns
+        const body = await response.json()
+        if (response.status !== 200) throw Error(body.message)
+        return body
+      }
 
 
     articlesList() {

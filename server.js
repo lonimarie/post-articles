@@ -43,7 +43,7 @@ connection.once('open', function() {
 
 
 //  });
-app.use(express.static('client/build'));
+//app.use(express.static('client/build'));
 //original route to main page
 articleRoutes.route('/').get(function(req, res) {
     Article.find(function(err, articles) {
@@ -155,7 +155,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-app.use('/articles', articleRoutes);
+//app.use('/articles', articleRoutes);
 
 app.listen(process.env.PORT || PORT, function() {
     console.log("Server is running on Port: " + PORT);
