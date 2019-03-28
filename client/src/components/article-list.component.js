@@ -16,7 +16,7 @@ export default class ArticleList extends Component {
         axios.get('/articles/')
             .then(response => {
                 this.setState({
-                    articles: response.data
+                    articles: response.data.articles
                 });
             })
             .catch(function (error) {
