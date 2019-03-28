@@ -18,7 +18,7 @@ export default class ArticleList extends Component {
                 this.setState({
                     articles: response.data
                     
-                }).then(console.log(response.data));
+                });
             })
             .catch(function (error) {
                 console.log(error);
