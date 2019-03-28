@@ -13,12 +13,17 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        fetch('/articles/')
-            .then(response => response.json()).then(data => this.setState({articles: data.articles}))
-
+        ('/articles/')
+            .then(response => {
+                this.setState({
+                    articles: response.data.articles
+                    
+                });
+            })
             .catch(function (error) {
                 console.log(error);
-            })            
+            })    
+            console.log(articles);        
     }
 
 

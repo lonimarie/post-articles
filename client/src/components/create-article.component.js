@@ -127,8 +127,6 @@ export default class CreateArticle extends Component {
             url: this.state.url
 
         };
-        console.log("here");
-        console.log(this.state.url);
 
         axios.post('/articles/add', newArticle)
         .then(res => console.log(res.data));
