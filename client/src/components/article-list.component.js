@@ -14,7 +14,7 @@ export default class ArticleList extends Component {
 
     componentDidMount() {
         fetch('/articles/')
-            .then(response => response.json()).then(articles => this.setState({articles}))
+            .then(response => response.json()).then(data => this.setState({articles: data.articles}))
 
             .catch(function (error) {
                 console.log(error);
