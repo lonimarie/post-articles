@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 const articleRoutes = express.Router();
 const path = require('path');
 
@@ -46,7 +46,8 @@ connection.once('open', function() {
 //  });
 //app.use(express.static('client/build'));
 //original route to main page
-articleRoutes.route('/api/articles').get(function(req, res) {
+articleRoutes.route('/').get(function(req, res) {
+    console.log("articleRoutes.route('/articles').get(function(req, res")
     Article.find(function(err, articles) {
         if (err) {
             console.log(err);
@@ -144,19 +145,20 @@ articleRoutes.route('/delete:id').delete(function(req, res) {
     });
 });
 
+app.use('/articles', articleRoutes);
 
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
     // Handle React routing, return all requests to React app
-    app.get('*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    });
-  }
+    // app.get('*', function(req, res) {
+    //   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    // });
+//   }
 
 
 
-//app.use('/articles', articleRoutes);
+
 //app.use(express.static('client/build'));
 
 app.listen(process.env.PORT || PORT, function() {

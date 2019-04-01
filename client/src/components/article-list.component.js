@@ -13,8 +13,9 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/articles')
+        axios.get('/articles')
             .then(response => {
+                console.log("al-component, /articles", response)
                 this.setState({
                     articles: response.data
                     
