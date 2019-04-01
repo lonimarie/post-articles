@@ -132,7 +132,8 @@ articleRoutes.route('/addComment').post(function(req, res) {
 });
 
 //request to delete an article based on ID
-articleRoutes.route('/delete:id').delete(function(req, res) {
+articleRoutes.route('/delete/:id').delete(function(req, res) {
+    console.log("into delete");
     let id = req.params.id;
     Article.findById(id, function(err, article) {
         article.remove()

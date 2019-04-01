@@ -95,7 +95,7 @@ export default class Article extends Component {
     }  
 
     delete(e) {
-        axios.delete('/delete' + this.props.article._id)
+        axios.delete('/articles/delete/' + this.props.article._id)
         .then(res => {
             console.log(res.data)
             window.location.reload()
