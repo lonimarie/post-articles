@@ -13,7 +13,7 @@ export default class ArticleList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/articles')
+        axios.get('mongodb+srv://perfectsense:perfectsense@cluster0-hjpdb.mongodb.net/test?retryWrites=true/api/articles')
             .then(response => {
                 this.setState({
                     articles: response.data
