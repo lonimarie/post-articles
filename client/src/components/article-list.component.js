@@ -17,7 +17,7 @@ export default class ArticleList extends Component {
             .then(response => {
                 console.log("al-component, /articles", response)
                 this.setState({
-                    articles: response.data
+                    articles: response.data.reverse()
                     
                 });
             })

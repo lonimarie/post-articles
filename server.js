@@ -9,14 +9,6 @@ const path = require('path');
 
 let Article = require('./article.model');
 
-//const MongoClient = require(‘mongodb’).MongoClient;
-//const uri = "mongodb+srv://perfectsense:<password>@cluster0-hjpdb.mongodb.net/test?retryWrites=true";
-//const client = new MongoClient(uri, { useNewUrlParser: true });
-//client.connect(err => {
-  //const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  //client.close();
-//});
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -31,20 +23,6 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-// if ('serviceWorker' in navigator) {
-//     window.addEventListener('load', function() {
-//       navigator.serviceWorker.register('/service-worker.js');
-//     });
-// }
-
-
-
-// app.get('/', function(req, res){
-//     // res.redirect('/todo');
-
-
-//  });
-//app.use(express.static('client/build'));
 //original route to main page
 articleRoutes.route('/').get(function(req, res) {
     console.log("articleRoutes.route('/articles').get(function(req, res")
